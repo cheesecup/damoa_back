@@ -23,7 +23,7 @@ public class ChatApiController {
     { //return ResponseEntity.ok(commentService.commentSave(user.getName(), id, dto));
 
         chatService.chatSave(user, groupInfo, comment);
-        response.sendRedirect("http://localhost:3000/GroupInfCheck/" + groupInfo);
+        response.sendRedirect("http://13.124.89.93/GroupInfCheck/" + groupInfo);
     }
 
 //    /* CREATE */

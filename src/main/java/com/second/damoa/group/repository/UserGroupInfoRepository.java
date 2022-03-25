@@ -12,7 +12,7 @@ public interface UserGroupInfoRepository extends JpaRepository<UserGroupInfo, Lo
 
     // 그룹에 가입한 회원 조회
     @Modifying
-    @Query(value = "select user.name, user.id from user_group_info join User on User.id = user_group_info.user_id where user_group_info.group_id = :group_id",
+    @Query(value = "select user.name, user.id from user_group_info join user on user.id = user_group_info.user_id where user_group_info.group_id = :group_id",
             nativeQuery = true)
     List<JoinUserInterface> joinUser(@Param("group_id") Long id);
 

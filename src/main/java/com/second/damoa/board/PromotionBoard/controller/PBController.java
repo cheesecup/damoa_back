@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000")
 @Slf4j
 @RestController
 @RequestMapping("/oauth2/redirect")
@@ -25,7 +24,7 @@ public class PBController {
     @PostMapping("/pboard")
     public void posttestPBoard(@ModelAttribute PromotionBoard promotionBoard, HttpServletResponse response) throws Exception{
         pbService.saveGroup(promotionBoard);
-        response.sendRedirect("http://localhost:3000/promopost/1");
+        response.sendRedirect("http://13.124.89.93/promopost/1");
     }
 
     // 글 목록 조회

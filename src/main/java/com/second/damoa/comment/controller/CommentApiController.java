@@ -28,7 +28,7 @@ public class CommentApiController {
     { //return ResponseEntity.ok(commentService.commentSave(user.getName(), id, dto));
 
         commentService.commentSave(user, freeBoard, comment);
-        response.sendRedirect("http://localhost:3000/freepostdetail/" + freeBoard);
+        response.sendRedirect("http://13.124.89.93/freepostdetail/" + freeBoard);
     }
 
 //    /* CREATE */

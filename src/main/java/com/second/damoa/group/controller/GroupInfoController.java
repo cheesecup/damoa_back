@@ -23,7 +23,7 @@ import java.net.MalformedURLException;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://13.124.89.93:3000")
+
 @Slf4j
 @RestController
 @RequestMapping("/oauth2/redirect/groupinfo")
@@ -44,6 +44,8 @@ public class GroupInfoController {
         return groupInfo;
     }
 
+    //
+
     // 입력한 그룹 정보 저장
     @PostMapping("/add")
     public void saveGroup(@ModelAttribute GroupInfo groupInfo,
@@ -58,7 +60,7 @@ public class GroupInfoController {
 //        // 그룹 생성자 UserGroupInfo db에 저장
 //        Long groupid = groupInfo.getId();
 //        groupInfoService.joinGroup(groupid, userid);
-        response.sendRedirect("http://localhost:3000/");
+        response.sendRedirect("http://13.124.89.93/");
     }
 
     // 그룹 정보 조회
@@ -75,7 +77,7 @@ public class GroupInfoController {
                           @RequestParam("userid") Long userid,
                           HttpServletResponse response) throws Exception {
         groupInfoService.joinGroup(id, userid); // 성공시 int '1' 반환
-        response.sendRedirect("http://localhost:3000/GroupInfCheck/" + id);
+        response.sendRedirect("http://13.124.89.93/GroupInfCheck/" + id);
     }
 
     // 그룹 탈퇴
@@ -84,7 +86,7 @@ public class GroupInfoController {
                            @RequestParam("userid") Long userid,
                            HttpServletResponse response) throws Exception {
         groupInfoService.leaveGroup(id, userid);
-        response.sendRedirect("http://localhost:3000/GroupInfCheck/" + id);
+        response.sendRedirect("http://13.124.89.93/GroupInfCheck/" + id);
     }
 
     // 그룹에 가입한 회원 조회
@@ -108,32 +110,7 @@ public class GroupInfoController {
         String groupImg = groupImgStore.storeImg(uploadImg);
 
         groupInfoService.imgUpdate(id, groupImg);
-        response.sendRedirect("http://localhost:3000/GroupInfCheck/" + id);
+        response.sendRedirect("http://13.124.89.93/GroupInfCheck/" + id);
     }
-
-//    // 그룹 title 검색
-//    @GetMapping("/search")
-//    public List<GroupInfo> search(@RequestParam String search) throws Exception {
-//        List<GroupInfo> searchGroup = groupInfoService.searchTitle(search);
-//        return searchGroup;
-//    }
-//
-//    // 그룹 정보 수정
-//    @PostMapping("/update")
-//    public String updateGroup(@ModelAttribute GroupInfo groupInfo,
-//                              @RequestParam("uploadImg") MultipartFile uploadImg) throws Exception {
-//        String groupImg = groupImgStore.storeImg(uploadImg);
-//        groupInfo.setGroupImg(groupImg);
-//
-//        groupInfoService.updateGroup(groupInfo);
-//        return "redirect:http://localhost:3000/";
-//    }
-//
-//    // 그룹 삭제
-//    @GetMapping("/delete/{id}")
-//    public void groupDelete(@PathVariable Long id, @RequestParam GroupInfo groupInfo) throws Exception {
-//        groupInfoService.deleteGroup(groupInfo);
-//
-//    }
 
 }

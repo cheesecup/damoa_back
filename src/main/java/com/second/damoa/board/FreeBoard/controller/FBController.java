@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000")
 @Slf4j
 @RestController
 @RequestMapping("/oauth2/redirect")
@@ -24,7 +23,7 @@ public class FBController {
     @PostMapping("/fboard")
     public void posttestFBoard(@ModelAttribute FreeBoard freeBoard, HttpServletResponse response) throws Exception{
         fbService.saveGroup(freeBoard);
-        response.sendRedirect("http://localhost:3000/freepost/1");
+        response.sendRedirect("http://13.124.89.93/freepost/1");
     }
 
     // 글 목록 조회
@@ -53,7 +52,7 @@ public class FBController {
     @PutMapping("/fboard/edit/{id}")
     public void update(@PathVariable Long id, FreeBoard freeBoard, HttpServletResponse response) throws Exception {
         fbService.savePost(freeBoard);
-        response.sendRedirect("http://localhost:3000/");
+        response.sendRedirect("http://13.124.89.93/");
     }
 
     //게시글 삭제

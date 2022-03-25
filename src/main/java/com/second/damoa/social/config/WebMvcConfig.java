@@ -1,4 +1,4 @@
-package com.second.damoa.social.config;
+/*package com.second.damoa.social.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -18,4 +18,4 @@ public class WebMvcConfig implements WebMvcConfigurer {
         .allowCredentials(true)
         .maxAge(MAX_AGE_SECS);
     }
-}
+}*/
